@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas Interactivas</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('fondotierra.jpg'); /* Imagen de fondo */
+            background-size: cover; /* Cubrir toda la pantalla */
+            display: flex;
+            flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
+            justify-content: center; /* Centrar las tarjetas horizontalmente */
+            align-items: center; /* Centrar las tarjetas verticalmente */
+            font-family: Arial, sans-serif;
+        }
+        .tarjeta {
+            background-color: #4CAF50; /* Color de fondo verde */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+            margin: 15px; /* Espacio entre tarjetas */
+            color: white; /* Cambiar el color del texto a blanco */
+            overflow: hidden;
+        }
+        .tarjeta img {
+            width: 100%;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .texto {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tarjeta">
+    <img id="imagen1" src="sandshrew.jpg" alt="Sandshrew" onclick="cambiarImagen(1)">
+    <div class="texto">
+        <h2 id="titulo1">Sandshrew</h2>
+        <p id="descripcion1">Sandshrew evoluciona a Sandslash a nivel 22</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen2" src="rhyhorn.png" alt="rhyhorn" onclick="cambiarImagen(2)">
+    <div class="texto">
+        <h2 id="titulo2">Rhyhorn</h2>
+        <p id="descripcion2">Rhyhorn evoluciona a Rhydon a nivel 42</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen3" src="hippopotas.jpg" alt="hippopotas" onclick="cambiarImagen(3)">
+    <div class="texto">
+        <h2 id="titulo3">Hippopotas</h2>
+        <p id="descripcion3">Hippopotas es un pokemon que evoluciona a nivel 34 a Hippowdon</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen4" src="trapinch.jpg" alt="trapinch" onclick="cambiarImagen(4)">
+    <div class="texto">
+        <h2 id="titulo4">Trapinch</h2>
+        <p id="descripcion4">Trapinch es un pokemon que evoluciona a nivel 35 a vibrava</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen5" src="gligar.jpg" alt="gligar" onclick="cambiarImagen(5)">
+    <div class="texto">
+        <h2 id="titulo5">Gligar</h2>
+        <p id="descripcion5">Gligar es un pokemon que evoluciona subiendo 1 nivel de noche con una garra afilada equipada</p>
+    </div>
+</div>
+
+<script>
+    const imagenes = [
+        // Imágenes para la tarjeta de Grubbin
+        [
+            {
+                src: "sandshrew.jpg",
+                titulo: "Sandshrew",
+                descripcion: "Sandshrew evoluciona a Sandslash al nivel 22"
+            },
+            {
+                src: "sandslash.jpg",
+                titulo: "Sandslash",
+                descripcion: "Sandslash es un pokemon tipo Tierra y la forma final de Sandshrew "
+            },
+         
+        ],
+        // Imágenes para las otras tarjetas
+        [
+            {
+                src: "rhyhorn.png",
+                titulo: "Rhyhorn",
+                descripcion: "Rhyhorn evoluciona a Rhydon a nivel 42"
+            },
+            {
+                src: "rhydon.png",
+                titulo: "Rhydon",
+                descripcion: "Rhydon evoluciona a Rhyperior mediante un intercambio con un protector equipado"
+            },
+            {
+                src: "rhyperior.jpg",
+                titulo: "Rhyperior",
+                descripcion: "Rhyperior es un Pokémon de tipo Tierra/Roca y es la forma final de Rhyhorn"
+            }
+        ],
+        //imagen tercera tarjeta
+        [
+            {
+                src: "hippopotas.jpg",
+                titulo: "Hippopotas",
+                descripcion: "Hippopotas es un pokemon que evoluciona a nivel 34 a Hippowdon"
+            },
+            {
+                src: "hippowdon.png",
+                titulo: "Hippowdon",
+                descripcion: "Hippowdon es un pokemon tipo Tierra y la forma final de Hippopotas"
+            },
+       
+        ],
+        //imagen cuarta tarjeta
+        [
+            {
+                src: "trapinch.jpg",
+                titulo: "Trapinch",
+                descripcion: "Trapinch es un pokemon que evoluciona a nivel 35 a vibrava."
+            },
+            {
+                src: "vibrava.png",
+                titulo: "Vibrava",
+                descripcion: "vibrava evoluciona a nivel 45 a Flygon"
+            },
+            {
+                src: "Flygon.jpg",
+                titulo: "Flygon",
+                descripcion: "Flygon es un pokemon de tipo Tierra/Dragon y es la forma final de Trapinch"
+            }
+        ],
+        // quinta tarjeta
+        [
+            {
+                src: "gligar.jpg",
+                titulo: "Gligar",
+                descripcion: "Gligar es un pokemon que evoluciona subiendo 1 nivel de noche con una garra afilada equipad"
+            },
+            {
+                src: "gliscor.jpg",
+                titulo: "Gliscor",
+                descripcion: "Gliscor es un pokemon de tipo Tierra/Volador y la forma final de Gligar"
+            },
+       
+        ]
+    ];
+
+    // Inicializar el índice de imágenes para cada tarjeta
+    const indices = [0, 0, 0, 0, 0];
+
+    function cambiarImagen(tarjetaIndex) {
+        // Incrementar el índice de la tarjeta actual
+        indices[tarjetaIndex - 1] = (indices[tarjetaIndex - 1] + 1) % imagenes[tarjetaIndex - 1].length;
+        // Actualizar la imagen, título y descripción según el índice
+        document.getElementById(`imagen${tarjetaIndex}`).src = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].src;
+        document.getElementById(`titulo${tarjetaIndex}`).innerText = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].titulo;
+        document.getElementById(`descripcion${tarjetaIndex}`).innerText = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].descripcion;
+    }
+</script>
+
+</body>
+</html>
