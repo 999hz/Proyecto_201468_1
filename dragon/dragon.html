@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas Interactivas</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('dragones.png'); /* Imagen de fondo */
+            background-size: cover; /* Cubrir toda la pantalla */
+            display: flex;
+            flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
+            justify-content: center; /* Centrar las tarjetas horizontalmente */
+            align-items: center; /* Centrar las tarjetas verticalmente */
+            font-family: Arial, sans-serif;
+        }
+        .tarjeta {
+            background-color: #4CAF50; /* Color de fondo verde */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+            margin: 15px; /* Espacio entre tarjetas */
+            color: white; /* Cambiar el color del texto a blanco */
+            overflow: hidden;
+        }
+        .tarjeta img {
+            width: 100%;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .texto {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tarjeta">
+    <img id="imagen1" src="dratini.png" alt="dratini" onclick="cambiarImagen(1)">
+    <div class="texto">
+        <h2 id="titulo1">dratini</h2>
+        <p id="descripcion1">dratini evoluciona a dragonair al nivel 30.</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen2" src="swablue.png" alt="swablue" onclick="cambiarImagen(2)">
+    <div class="texto">
+        <h2 id="titulo2">swablue</h2>
+        <p id="descripcion2">swablue evoluciona a altaria al nivel 35.</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen3" src="dreepy.png" alt="dreepy" onclick="cambiarImagen(3)">
+    <div class="texto">
+        <h2 id="titulo3">dreepy</h2>
+        <p id="descripcion3">dreepy evoluciona a drakloak al nivel 50.</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen4" src="gible.png" alt="gible" onclick="cambiarImagen(4)">
+    <div class="texto">
+        <h2 id="titulo4">gible</h2>
+        <p id="descripcion4">gible evoluciona a gabite al nivel 24.</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen5" src="jangmo-o.png" alt="jangmo-o" onclick="cambiarImagen(5)">
+    <div class="texto">
+        <h2 id="titulo5">jangmo-o</h2>
+        <p id="descripcion5">jangmo-o evoluciona a hakamo-o al nivel 35.</p>
+    </div>
+</div>
+
+<script>
+    const imagenes = [
+        // Imágenes para la tarjeta de Grubbin
+        [
+            {
+                src: "dratini.png",
+                titulo: "dratini",
+                descripcion: "dratini evoluciona a dragonair a nivel 30."
+            },
+            {
+                src: "dragonair.png",
+                titulo: "dragonair",
+                descripcion: "dragonair evoluciona a dragonite nivel ."
+            },
+            {
+                src: "dragonite.png",
+                titulo: "dragonite",
+                descripcion: "dragonite es un Pokémon de tipo dragon/volador y es la forma final de dratini."
+            }
+        ],
+        // Imágenes para las otras tarjetas
+        [
+            {
+                src: "swablue.png",
+                titulo: "swablue",
+                descripcion: "swablue evoluciona a altaria a nivel 35."
+            },
+            {
+                src: "altaria.png",
+                titulo: "altaria",
+                descripcion: "altaria es un pokemon de tipo dragon/volador y la forma final de swablue"
+            },
+
+        ],
+        //imagen tercera tarjeta
+        [
+            {
+                src: "dreepy.png",
+                titulo: "dreepy",
+                descripcion: "dreepy evoluciona a drakloak al nivel 50."
+            },
+            {
+                src: "drakloak.png",
+                titulo: "drakloak",
+                descripcion: "drakloak evoluciona a dragapult al nivel 60."
+            },
+            {
+                src: "dragapult.png",
+                titulo: "dragapult",
+                descripcion: "dragapult es un Pokémon de tipo dragon/fantasma y es la forma final de dreepy."
+            }
+        ],
+        //imagen cuarta tarjeta
+        [
+            {
+                src: "gible.png",
+                titulo: "gible",
+                descripcion: "gible evoluciona a gabite al nivel 24."
+            },
+            {
+                src: "gabite.png",
+                titulo: "gabite",
+                descripcion: "gabite evoluciona a garchomp al nivel 48."
+            },
+            {
+                src: "garchomp.png",
+                titulo: "garchomp",
+                descripcion: "garchomp es un Pokémon de tipo dragon/tierra y es la forma final de gible."
+            }
+        ],
+        // quinta tarjeta
+        [
+            {
+                src: "jangmo-o.png",
+                titulo: "jangmo-o",
+                descripcion: "jangmo-o evoluciona a hakamo-o al nivel 35."
+            },
+            {
+                src: "hakamo-o.png",
+                titulo: "hakamo-o",
+                descripcion: "hakamo-o evoluciona a kommo-o al nivel 45."
+            },
+            {
+                src: "kommo-o.png",
+                titulo: "kommo-o",
+                descripcion: "kommo-o es un Pokémon de tipo dragon/lucha y es la forma final de jangmo-o."
+            }
+        ]
+    ];
+
+    // Inicializar el índice de imágenes para cada tarjeta
+    const indices = [0, 0, 0, 0, 0];
+
+    function cambiarImagen(tarjetaIndex) {
+        // Incrementar el índice de la tarjeta actual
+        indices[tarjetaIndex - 1] = (indices[tarjetaIndex - 1] + 1) % imagenes[tarjetaIndex - 1].length;
+        // Actualizar la imagen, título y descripción según el índice
+        document.getElementById(`imagen${tarjetaIndex}`).src = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].src;
+        document.getElementById(`titulo${tarjetaIndex}`).innerText = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].titulo;
+        document.getElementById(`descripcion${tarjetaIndex}`).innerText = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].descripcion;
+    }
+</script>
+
+</body>
+</html>

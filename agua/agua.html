@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas Interactivas</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('fondoagua.png'); /* Imagen de fondo */
+            background-size: cover; /* Cubrir toda la pantalla */
+            display: flex;
+            flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
+            justify-content: center; /* Centrar las tarjetas horizontalmente */
+            align-items: center; /* Centrar las tarjetas verticalmente */
+            font-family: Arial, sans-serif;
+        }
+        .tarjeta {
+            background-color: #4CAF50; /* Color de fondo verde */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+            margin: 15px; /* Espacio entre tarjetas */
+            color: white; /* Cambiar el color del texto a blanco */
+            overflow: hidden;
+        }
+        .tarjeta img {
+            width: 100%;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .texto {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tarjeta">
+    <img id="imagen1" src="squirtle.png" alt="squirtle" onclick="cambiarImagen(1)">
+    <div class="texto">
+        <h2 id="titulo1">squirtle</h2>
+        <p id="descripcion1">squirtle evoluciona a wartortle a nivel 16.</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen2" src="magikarp.png" alt="magikarp" onclick="cambiarImagen(2)">
+    <div class="texto">
+        <h2 id="titulo2">magikarp</h2>
+        <p id="descripcion2">magikarp evoluciona a gyarados al nivel 20.</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen3" src="staryu.png" alt="staryu" onclick="cambiarImagen(3)">
+    <div class="texto">
+        <h2 id="titulo3">staryu</h2>
+        <p id="descripcion3">staryu evoluciona a starmie con una piedra agua.</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen4" src="clamperl.png" alt="Caterpie" onclick="cambiarImagen(4)">
+    <div class="texto">
+        <h2 id="titulo4">clamperl</h2>
+        <p id="descripcion4">clamperl es un Pokémon con dos metodos de evolucion.</p>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <img id="imagen5" src="mantyke.png" alt="Caterpie" onclick="cambiarImagen(5)">
+    <div class="texto">
+        <h2 id="titulo5">mantyke</h2>
+        <p id="descripcion5">mantyke evoluciona a mantine con un remoraid en un equipo.</p>
+    </div>
+</div>
+
+<script>
+    const imagenes = [
+        // Imágenes para la tarjeta de Grubbin
+        [
+            {
+                src: "squirtle.png",
+                titulo: "squirtle",
+                descripcion: "squirtle evoluciona a wartortle al nivel 16"
+            },
+            {
+                src: "wartortle.png",
+                titulo: "wartortle",
+                descripcion: "wartortle evoluciona a blastoise al nivel 36."
+            },
+            {
+                src: "blastoise.png",
+                titulo: "blastoise",
+                descripcion: "blastoise es un pokemon de tipo agua y etapa final de squirtle."
+            }
+        ],
+        // Imágenes para las otras tarjetas
+        [
+            {
+                src: "magikarp.png",
+                titulo: "magikarp",
+                descripcion: "magikarp evoluciona al nivel 20."
+            },
+            {
+                src: "gyarados.png",
+                titulo: "gyarados",
+                descripcion: "gyarados es un pokemon de tipo agua volador y etapa final de magikarp"
+            },
+
+        ],
+        //imagen tercera tarjeta
+        [
+            {
+                src: "staryu.png",
+                titulo: "staryu",
+                descripcion: "staryu evoluciona con una piedra agua."
+            },
+            {
+                src: "starmie.png",
+                titulo: "starmie",
+                descripcion: "starmie es un pokemon de tipo agua psiquico y etapa final de staryu."
+            },
+
+        ],
+        //imagen cuarta tarjeta
+        [
+            {
+                src: "clamperl.png",
+                titulo: "clamperl",
+                descripcion: "Caterpie es un Pokémon de tipo bicho que evoluciona a Metapod."
+            },
+            {
+                src: "huntail.png",
+                titulo: "huntail",
+                descripcion: "huntail es una de las dos evoluciones de clampearl de tipo agua intercambiandolo con un diente marino equipado."
+            },
+            {
+                src: "Gorebyss.png",
+                titulo: "Gorebyss",
+                descripcion: "Gorebyss es la otra evolucion de clampearl de tipo agua intercambiandolo con una escama marina equipado."
+            }
+        ],
+        // quinta tarjeta
+        [
+            {
+                src: "mantyke.png",
+                titulo: "mantyke",
+                descripcion: "mantyke es un Pokémon de tipo agua que evoluciona a mantine con un remoraid en un equipo."
+            },
+            {
+                src: "mantine.png",
+                titulo: "mantine",
+                descripcion: "mantine es un pokemon de tipo agua volador y etapa final de mantyke."
+            },
+
+        ]
+    ];
+
+    // Inicializar el índice de imágenes para cada tarjeta
+    const indices = [0, 0, 0, 0, 0];
+
+    function cambiarImagen(tarjetaIndex) {
+        // Incrementar el índice de la tarjeta actual
+        indices[tarjetaIndex - 1] = (indices[tarjetaIndex - 1] + 1) % imagenes[tarjetaIndex - 1].length;
+        // Actualizar la imagen, título y descripción según el índice
+        document.getElementById(`imagen${tarjetaIndex}`).src = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].src;
+        document.getElementById(`titulo${tarjetaIndex}`).innerText = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].titulo;
+        document.getElementById(`descripcion${tarjetaIndex}`).innerText = imagenes[tarjetaIndex - 1][indices[tarjetaIndex - 1]].descripcion;
+    }
+</script>
+
+</body>
+</html>
