@@ -3,93 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Pokémon</title>
-    <!-- Bootstrap CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Registrarse - Centro Pokémon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
             margin: 0;
             padding: 0;
-        }
-
-        #background {
-            background-image: url('resources/Centro Pokemon.jpg');
-            background-size: cover;
-            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
+            background-color: #f8f9fa;
         }
-        .caja-parrafo {
-            background-color: #4CAF50; /* Color de fondo verde */
-            color: black; /* Color del texto blanco */
-            padding: 20px; /* Espaciado interno */
-            border-radius: 10px; /* Bordes redondeados */
+        .register-container {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
         }
-
-        h1 {
-            color: black; /* Cambiar color a negro */
-            margin-top: 0px; /* Ajustar margen superior a 0 */
-        }
-
-        img {
-            width: 250px; /* Establecer ancho a 100px */
-            height: 250px; /* Establecer altura a 100px */
+        .text-blue {
+            color: blue;
             cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        img:hover {
-            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid" id="background">
-        <div class="row justify-content-center align-items-center" style="height: 100%;">
-            <div class="col-12 text-center">
-                <h1 class="mb-4">Centro Pokémon</h1>
-                <div class="caja-parrafo">
-    <p>¡Bienvenido a nuestra página dedicada a las fascinantes evoluciones de los Pokémon de tipo Bicho! En el mundo de los Pokémon, los Pokémon de tipo Bicho son conocidos por su gran diversidad y su constante adaptación a los entornos que habitan. A lo largo de las generaciones, estos Pokémon han mostrado una impresionante capacidad de transformación, pasando de criaturas pequeñas y sencillas a seres poderosos y complejos. En esta sección, exploraremos cómo estos Pokémon evolucionan, desde sus primeras formas hasta sus versiones más formidables, y cómo estas evoluciones reflejan tanto su naturaleza como sus habilidades únicas en combate. ¡Prepárate para un viaje a través del mundo de las metamorfosis más sorprendentes y descubre cómo la evolución de los Pokémon tipo Bicho marca la diferencia en sus batallas!</p>
-</div>
-                <div class="row">
-                    <div class="col-6 col-md-4 mb-4">
-                        <img src="resources/tipo bicho.jpg" alt="tipo bicho" class="img-fluid" onclick="redirectToForm('bicho/bicho.html')">
-                    </div>
-                    <div class="col-6 col-md-4 mb-4">
-                        <img src="resources/psiquico.jpg" alt="psiquico" class="img-fluid" onclick="redirectToForm('psiquico/psiquico.html')">
-                    </div>
-                    <div class="col-6 col-md-4 mb-4">
-                        <img src="resources/fuego.jpg" alt="fuego" class="img-fluid" onclick="redirectToForm('fuego/fuego.html')">
-                    </div>
-                    <div class="col-6 col-md-4 mb-4">
-                        <img src="resources/tierra.jpg" alt="tierra" class="img-fluid" onclick="redirectToForm('tierra/tierra.html')">
-                    </div>
-                    <div class="col-6 col-md-4 mb-4">
-                        <img src="resources/agua.jpg" alt="agua" class="img-fluid" onclick="redirectToForm('agua/agua.html')">
-                    </div>
-                    <div class="col-6 col-md-4 mb-4">
-                        <img src="resources/dragones.jpg" alt="dragones" class="img-fluid" onclick="redirectToForm('dragon/dragon.html')">
-                    </div>
-                </div>
+    <div class="register-container">
+        <h2 class="text-center">Registrarse</h2>
+        <form id="registerForm">
+            <div class="mb-3">
+                <label for="username" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="username" required>
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+        <p class="text-center mt-3">¿Ya tienes cuenta? <span class="text-blue" onclick="redirectToLogin()">Iniciar Sesión</span></p>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-    function redirectToForm(formUrl) {
-        // Pregunta al usuario si está seguro de ir a la URL
-        const userConfirmed = confirm("¿Está seguro de ir a " + formUrl + "?");
-        
-        // Si el usuario confirma, redirige a la URL
-        if (userConfirmed) {
-            window.location.href = formUrl;
-        } else {
-            // Si el usuario cancela, muestra un mensaje adicional
-            alert("Has cancelado la redirección.");
-        }
-    }
-</script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Guardar en localStorage
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+
+        alert('Usuario registrado con éxito. Puedes iniciar sesión ahora.');
+    });
+
+    </script>
 </body>
 </html>
