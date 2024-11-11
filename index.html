@@ -3,61 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse - Centro Pokémon</title>
+    <title>Centro Pokémon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        }
+
+        #background {
+            background-image: url('resources/Centro Pokemon.jpg');
+            background-size: cover;
+            background-position: center;
             height: 100vh;
-            background-color: #f8f9fa;
         }
-        .register-container {
-            width: 300px;
+        .caja-parrafo {
+            background-color: rgba(76, 175, 80, 0.8); /* Fondo semitransparente para la caja de párrafo */
+            color: black;
             padding: 20px;
-            border: 1px solid #ccc;
             border-radius: 10px;
-            background-color: white;
         }
-        .text-blue {
-            color: blue;
+        h1 {
+            color: black;
+            margin-top: 0px;
+        }
+
+        img {
+            width: 250px;
+            height: 250px;
             cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .modal.fade {
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <div class="register-container">
-        <h2 class="text-center">Registrarse</h2>
-        <form id="registerForm">
-            <div class="mb-3">
-                <label for="username" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="username" required>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Centro Pokémon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" id="loginItem">
+                        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</button>
+                    </li>
+                    <li class="nav-item" id="welcomeItem" style="display: none;">
+                        <span class="navbar-text" id="welcomeText"></span>
+                    </li>
+                </ul>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" required>
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="background">
+        <div class="row justify-content-center align-items-center" style="height: 100%;">
+            <div class="col-12 text-center">
+                <h1 class="mb-4">Centro Pokémon</h1>
+                <div class="caja-parrafo">
+                    <p>
+¡Bienvenidos a Centro Pokémon! Aquí descubrirás todo sobre las transformaciones de tus Pokémon favoritos. Exploramos cómo cada uno puede evolucionar, y los métodos que lo hacen posible, como piedras, amistad o momentos especiales. ¡Sigue leyendo y adéntrate en el fascinante mundo de las evoluciones Pokémon!</p>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-md-4 mb-4">
+                        <img src="resources/tipo bicho.jpg" alt="tipo bicho" class="img-fluid" onclick="redirectToForm('bicho/bicho.html')">
+                    </div>
+                    <div class="col-6 col-md-4 mb-4">
+                        <img src="resources/psiquico.jpg" alt="psiquico" class="img-fluid" onclick="redirectToForm('psiquico/psiquico.html')">
+                    </div>
+                    <div class="col-6 col-md-4 mb-4">
+                        <img src="resources/fuego.jpg" alt="fuego" class="img-fluid" onclick="redirectToForm('fuego/fuego.html')">
+                    </div>
+                    <div class="col-6 col-md-4 mb-4">
+                        <img src="resources/tierra.jpg" alt="tierra" class="img-fluid" onclick="redirect ToForm('tierra/tierra.html')">
+                    </div>
+                    <div class="col-6 col-md-4 mb-4">
+                        <img src="resources/agua.jpg" alt="agua" class="img-fluid" onclick="redirectToForm('agua/agua.html')">
+                    </div>
+                    <div class="col-6 col-md-4 mb-4">
+                        <img src="resources/dragones.jpg" alt="dragones" class="img-fluid" onclick="redirectToForm('dragon/dragon.html')">
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
-        </form>
-        <p class="text-center mt-3">¿Ya tienes cuenta? <span class="text-blue" onclick="redirectToLogin()">Iniciar Sesión</span></p>
+        </div>
     </div>
 
+    <!-- Modal de inicio de sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
+    function redirectToForm(formUrl) {
+        const userConfirmed = confirm("¿Está seguro de ir a " + formUrl + "?");
+        if (userConfirmed) {
+            window.location.href = formUrl;
+        } else {
+            alert("Has cancelado la redirección a " + formUrl + ".");
+        }
+    }
+
+    // Manejo del formulario de inicio de sesión
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
         event.preventDefault();
         const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        // Guardar en localStorage
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
-
-        alert('Usuario registrado con éxito. Puedes iniciar sesión ahora.');
+        alert('Iniciando sesión como: ' + username);
+        // Mostrar mensaje de bienvenida y ocultar botón de inicio de sesión
+        document.getElementById('loginItem').style.display = 'none';
+        document.getElementById('welcomeText').innerText = 'Bienvenido ' + username;
+        document.getElementById('welcomeItem').style.display = 'block';
+        $('#loginModal').modal('hide'); // Cerrar el modal después de iniciar sesión
     });
-
     </script>
+
 </body>
 </html>
