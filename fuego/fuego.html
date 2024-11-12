@@ -8,7 +8,7 @@
         body {
             margin: 0;
             min-height: 100vh; /* Cambiado de height a min-height */
-            background-image: url('raro.jpg'); /* Imagen de fondo */
+            background-image: url('volcanfondo.png'); /* Imagen de fondo */
             background-size: cover; /* Cubrir toda la pantalla */
             background-position: center; /* Centrar la imagen */
             display: flex;
@@ -16,6 +16,14 @@
             align-items: center; /* Centrar horizontalmente */
             font-family: Arial, sans-serif;
         }
+
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en varias filas */
+            justify-content: center; /* Centra las tarjetas horizontalmente */
+            margin-top: 20px; /* Espacio entre el fondo y las tarjetas */
+        }
+
         .tarjeta {
             background-color: #FF0000; /* Color de fondo rojo */
             border-radius: 10px;
@@ -26,11 +34,13 @@
             color: white; /* Cambiar el color del texto a blanco */
             overflow: hidden;
         }
+
         .tarjeta img {
             width: 100%;
             cursor: pointer;
             transition: opacity 0.3s;
         }
+
         .texto {
             padding: 15px;
         }
@@ -38,49 +48,51 @@
 </head>
 <body>
 
-<div class="tarjeta">
-    <img id="imagen1" src="Charmander.jpg" alt="charmander" onclick="cambiarImagen(1)">
-    <div class="texto">
-        <h2 id="titulo1">Charmander</h2>
-        <p id="descripcion1">Charmander evoluciona a Charmeleon a nivel 16</p>
+<div class="contenedor">
+    <div class="tarjeta">
+        <img id="imagen1" src="Charmander.jpg" alt="charmander" onclick="cambiarImagen(1)">
+        <div class="texto">
+            <h2 id="titulo1">Charmander</h2>
+            <p id="descripcion1">Charmander evoluciona a Charmeleon a nivel 16</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen2" src="torchic.jpg" alt="torchic" onclick="cambiarImagen(2)">
-    <div class="texto">
-        <h2 id="titulo2">Torchic</h2>
-        <p id="descripcion2">Torchic evoluciona a Combusken a nivel 16</p>
+    <div class="tarjeta">
+        <img id="imagen2" src="torchic.jpg" alt="torchic" onclick="cambiarImagen(2)">
+        <div class="texto">
+            <h2 id="titulo2">Torchic</h2>
+            <p id="descripcion2">Torchic evoluciona a Combusken a nivel 16</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen3" src="growlithe.jpg" alt="growlithe" onclick="cambiarImagen(3)">
-    <div class="texto">
-        <h2 id="titulo3">Growlithe</h2>
-        <p id="descripcion3">Growlithe es un pokemon que evoluciona con una piedra fuego</p>
+    <div class="tarjeta">
+        <img id="imagen3" src="growlithe.jpg" alt="growlithe" onclick="cambiarImagen(3)">
+        <div class="texto">
+            <h2 id="titulo3">Growlithe</h2>
+            <p id="descripcion3">Growlithe es un Pokémon que evoluciona con una piedra fuego</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen4" src="charcadet.png" alt="charcadet" onclick="cambiarImagen(4)">
-    <div class="texto">
-        <h2 id="titulo4">Charcadet</h2>
-        <p id="descripcion4">Charcadet es un Pokémon de tipo fuego que puede evolucionar a Armarougue al exponerlo a una armadura auspisiosa o en Ceruledge con una armadura maldita.</p>
+    <div class="tarjeta">
+        <img id="imagen4" src="charcadet.png" alt="charcadet" onclick="cambiarImagen(4)">
+        <div class="texto">
+            <h2 id="titulo4">Charcadet</h2>
+            <p id="descripcion4">Charcadet es un Pokémon de tipo fuego que puede evolucionar a Armarougue al exponerlo a una armadura auspiciosa o en Ceruledge con una armadura maldita.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen5" src="numel.jpg" alt="numel" onclick="cambiarImagen(5)">
-    <div class="texto">
-        <h2 id="titulo5">Numel</h2>
-        <p id="descripcion5">Numel es un pokemon que evoluciona a nivel 33 a Camerupt</p>
+    <div class="tarjeta">
+        <img id="imagen5" src="numel.jpg" alt="numel" onclick="cambiarImagen(5)">
+        <div class="texto">
+            <h2 id="titulo5">Numel</h2>
+            <p id="descripcion5">Numel es un Pokémon que evoluciona a nivel 33 a Camerupt</p>
+        </div>
     </div>
 </div>
 
 <script>
     const imagenes = [
-        // Imágenes para la tarjeta de Grubbin
+        // Imágenes para la tarjeta de Charmander
         [
             {
                 src: "Charmander.jpg",
@@ -90,7 +102,7 @@
             {
                 src: "Charmeleon.png",
                 titulo: "Charmeleon",
-                descripcion: "Charmeleon evoluciona en Charizard a nivel 34 "
+                descripcion: "Charmeleon evoluciona en Charizard a nivel 34"
             },
             {
                 src: "Charizard.jpg",
@@ -108,7 +120,7 @@
             {
                 src: "Combusken.jpg",
                 titulo: "Combusken",
-                descripcion: "Combusken evoluciona a Blaziken al nivl 36"
+                descripcion: "Combusken evoluciona a Blaziken al nivel 36"
             },
             {
                 src: "blaziken.jpg",
@@ -116,7 +128,7 @@
                 descripcion: "Blaziken es un Pokémon de tipo Fuego/Lucha y es la forma final de Torchic."
             }
         ],
-        //imagen tercera tarjeta
+        // Imagen tercera tarjeta
         [
             {
                 src: "growlithe.jpg",
@@ -126,29 +138,28 @@
             {
                 src: "Arcanine.jpg",
                 titulo: "Arcanine",
-                descripcion: "Arcanine es un Pokemon de tipo Fuego y es la forma final de Growlithe"
+                descripcion: "Arcanine es un Pokémon de tipo Fuego y es la forma final de Growlithe"
             },
-       
         ],
-        //imagen cuarta tarjeta
+        // Imagen cuarta tarjeta
         [
             {
                 src: "charcadet.png",
                 titulo: "Charcadet",
-                descripcion: "Charcadet es un Pokémon de tipo fuego que puede evolucionar a Armarougue al exponerlo a una armadura auspisiosa o en Ceruledge con una armadura maldita."
+                descripcion: "Charcadet es un Pokémon de tipo fuego que puede evolucionar a Armarougue al exponerlo a una armadura auspiciosa o en Ceruledge con una armadura maldita."
             },
             {
                 src: "armarouge.jpg",
                 titulo: "Armarougue",
-                descripcion: "Armarougue es un pokemon de tipo Fuego/psiquico y es una de las formas finales de Charcadet"
+                descripcion: "Armarougue es un Pokémon de tipo Fuego/Psíquico y es una de las formas finales de Charcadet"
             },
             {
                 src: "ceruledge.jpg",
                 titulo: "Ceruledge",
-                descripcion: "Ceruledge es un pokemon de tipo Fuego/fantasma y es una de las formas finales de Charcadet"
+                descripcion: "Ceruledge es un Pokémon de tipo Fuego/Fantasma y es una de las formas finales de Charcadet"
             }
         ],
-        // quinta tarjeta
+        // Quinta tarjeta
         [
             {
                 src: "numel.jpg",
@@ -158,9 +169,8 @@
             {
                 src: "camerupt.jpg",
                 titulo: "Camerupt",
-                descripcion: "Camerupt es un pokemon de tipo Fuego/Tierra y la forma final de Numel"
+                descripcion: "Camerupt es un Pokémon de tipo Fuego/Tierra y la forma final de Numel"
             },
-       
         ]
     ];
 
