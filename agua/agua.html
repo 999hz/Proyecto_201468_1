@@ -8,14 +8,22 @@
         body {
             margin: 0;
             min-height: 100vh; /* Cambiado de height a min-height */
-            background-image: url('raro.jpg'); /* Imagen de fondo */
+            background-image: url('fondoagua.png'); /* Imagen de fondo */
             background-size: cover; /* Cubrir toda la pantalla */
             background-position: center; /* Centrar la imagen */
+            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column; /* Cambiar a columna */
             align-items: center; /* Centrar horizontalmente */
-            font-family: Arial, sans-serif;
         }
+
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en varias filas */
+            justify-content: center; /* Centra las tarjetas horizontalmente */
+            margin-top: 20px; /* Espacio entre el fondo y las tarjetas */
+        }
+
         .tarjeta {
             background-color: #00FFFF; /* Color de fondo agua */
             border-radius: 10px;
@@ -26,11 +34,13 @@
             color: #F8DE7E; /* Cambiar el color del texto a blanco */
             overflow: hidden;
         }
+
         .tarjeta img {
             width: 100%;
             cursor: pointer;
             transition: opacity 0.3s;
         }
+
         .texto {
             padding: 15px;
         }
@@ -38,49 +48,51 @@
 </head>
 <body>
 
-<div class="tarjeta">
-    <img id="imagen1" src="squirtle.png" alt="squirtle" onclick="cambiarImagen(1)">
-    <div class="texto">
-        <h2 id="titulo1">squirtle</h2>
-        <p id="descripcion1">squirtle evoluciona a wartortle a nivel 16.</p>
+<div class="contenedor">
+    <div class="tarjeta">
+        <img id="imagen1" src="squirtle.png" alt="squirtle" onclick="cambiarImagen(1)">
+        <div class="texto">
+            <h2 id="titulo1">squirtle</h2>
+            <p id="descripcion1">squirtle evoluciona a wartortle a nivel 16.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen2" src="magikarp.png" alt="magikarp" onclick="cambiarImagen(2)">
-    <div class="texto">
-        <h2 id="titulo2">magikarp</h2>
-        <p id="descripcion2">magikarp evoluciona a gyarados al nivel 20.</p>
+    <div class="tarjeta">
+        <img id="imagen2" src="magikarp.png" alt="magikarp" onclick="cambiarImagen(2)">
+        <div class="texto">
+            <h2 id="titulo2">magikarp</h2>
+            <p id="descripcion2">magikarp evoluciona a gyarados al nivel 20.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen3" src="staryu.png" alt="staryu" onclick="cambiarImagen(3)">
-    <div class="texto">
-        <h2 id="titulo3">staryu</h2>
-        <p id="descripcion3">staryu evoluciona a starmie con una piedra agua.</p>
+    <div class="tarjeta">
+        <img id="imagen3" src="staryu.png" alt="staryu" onclick="cambiarImagen(3)">
+        <div class="texto">
+            <h2 id="titulo3">staryu</h2>
+            <p id="descripcion3">staryu evoluciona a starmie con una piedra agua.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen4" src="clamperl.png" alt="Caterpie" onclick="cambiarImagen(4)">
-    <div class="texto">
-        <h2 id="titulo4">clamperl</h2>
-        <p id="descripcion4">clamperl es un Pokémon con dos metodos de evolucion.</p>
+    <div class="tarjeta">
+        <img id="imagen4" src="clamperl.png" alt="clamperl" onclick="cambiarImagen(4)">
+        <div class="texto">
+            <h2 id="titulo4">clamperl</h2>
+            <p id="descripcion4">clamperl es un Pokémon con dos métodos de evolución.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen5" src="mantyke.png" alt="Caterpie" onclick="cambiarImagen(5)">
-    <div class="texto">
-        <h2 id="titulo5">mantyke</h2>
-        <p id="descripcion5">mantyke evoluciona a mantine con un remoraid en un equipo.</p>
+    <div class="tarjeta">
+        <img id="imagen5" src="mantyke.png" alt="mantyke" onclick="cambiarImagen(5)">
+        <div class="texto">
+            <h2 id="titulo5">mantyke</h2>
+            <p id="descripcion5">mantyke evoluciona a mantine con un remoraid en un equipo.</p>
+        </div>
     </div>
 </div>
 
 <script>
     const imagenes = [
-        // Imágenes para la tarjeta de Grubbin
+        // Imágenes para la tarjeta de Squirtle
         [
             {
                 src: "squirtle.png",
@@ -110,9 +122,8 @@
                 titulo: "gyarados",
                 descripcion: "gyarados es un pokemon de tipo agua volador y etapa final de magikarp"
             },
-
         ],
-        //imagen tercera tarjeta
+        // Imagen tercera tarjeta
         [
             {
                 src: "staryu.png",
@@ -124,27 +135,26 @@
                 titulo: "starmie",
                 descripcion: "starmie es un pokemon de tipo agua psiquico y etapa final de staryu."
             },
-
         ],
-        //imagen cuarta tarjeta
+        // Imagen cuarta tarjeta
         [
             {
                 src: "clamperl.png",
                 titulo: "clamperl",
-                descripcion: "clamperl es un Pokémon con dos metodos de evolucion."
+                descripcion: "clamperl es un Pokémon con dos métodos de evolución."
             },
             {
                 src: "huntail.png",
                 titulo: "huntail",
-                descripcion: "huntail es una de las dos evoluciones de clampearl de tipo agua intercambiandolo con un diente marino equipado."
+                descripcion: "huntail es una de las dos evoluciones de clampearl de tipo agua intercambiándolo con un diente marino equipado."
             },
             {
                 src: "Gorebyss.png",
                 titulo: "Gorebyss",
-                descripcion: "Gorebyss es la otra evolucion de clampearl de tipo agua intercambiandolo con una escama marina equipado."
+                descripcion: "Gorebyss es la otra evolución de clampearl de tipo agua intercambiándolo con una escama marina equipada."
             }
         ],
-        // quinta tarjeta
+        // Quinta tarjeta
         [
             {
                 src: "mantyke.png",
@@ -156,7 +166,6 @@
                 titulo: "mantine",
                 descripcion: "mantine es un pokemon de tipo agua volador y etapa final de mantyke."
             },
-
         ]
     ];
 
