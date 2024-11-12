@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipo Dragon</title>
+    <title>Tipo Dragón</title>
     <style>
-body {
+        body {
             margin: 0;
             min-height: 100vh; /* Cambiado de height a min-height */
-            background-image: url('raro.jpg'); /* Imagen de fondo */
+            background-image: url('dragones.png'); /* Imagen de fondo */
             background-size: cover; /* Cubrir toda la pantalla */
             background-position: center; /* Centrar la imagen */
             display: flex;
@@ -17,6 +16,14 @@ body {
             align-items: center; /* Centrar horizontalmente */
             font-family: Arial, sans-serif;
         }
+        
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en varias filas */
+            justify-content: center; /* Centra las tarjetas horizontalmente */
+            margin-top: 20px; /* Espacio entre el fondo y las tarjetas */
+        }
+
         .tarjeta {
             background-color: #00008B; /* Color de fondo azul oscuro */
             border-radius: 10px;
@@ -27,11 +34,13 @@ body {
             color: white; /* Cambiar el color del texto a blanco */
             overflow: hidden;
         }
+
         .tarjeta img {
             width: 100%;
             cursor: pointer;
             transition: opacity 0.3s;
         }
+
         .texto {
             padding: 15px;
         }
@@ -39,49 +48,51 @@ body {
 </head>
 <body>
 
-<div class="tarjeta">
-    <img id="imagen1" src="dratini.png" alt="dratini" onclick="cambiarImagen(1)">
-    <div class="texto">
-        <h2 id="titulo1">dratini</h2>
-        <p id="descripcion1">dratini evoluciona a dragonair al nivel 30.</p>
+<div class="contenedor">
+    <div class="tarjeta">
+        <img id="imagen1" src="dratini.png" alt="dratini" onclick="cambiarImagen(1)">
+        <div class="texto">
+            <h2 id="titulo1">dratini</h2>
+            <p id="descripcion1">dratini evoluciona a dragonair al nivel 30.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen2" src="swablue.png" alt="swablue" onclick="cambiarImagen(2)">
-    <div class="texto">
-        <h2 id="titulo2">swablue</h2>
-        <p id="descripcion2">swablue evoluciona a altaria al nivel 35.</p>
+    <div class="tarjeta">
+        <img id="imagen2" src="swablue.png" alt="swablue" onclick="cambiarImagen(2)">
+        <div class="texto">
+            <h2 id="titulo2">swablue</h2>
+            <p id="descripcion2">swablue evoluciona a altaria al nivel 35.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen3" src="dreepy.png" alt="dreepy" onclick="cambiarImagen(3)">
-    <div class="texto">
-        <h2 id="titulo3">dreepy</h2>
-        <p id="descripcion3">dreepy evoluciona a drakloak al nivel 50.</p>
+    <div class="tarjeta">
+        <img id="imagen3" src="dreepy.png" alt="dreepy" onclick="cambiarImagen(3)">
+        <div class="texto">
+            <h2 id="titulo3">dreepy</h2>
+            <p id="descripcion3">dreepy evoluciona a drakloak al nivel 50.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen4" src="gible.png" alt="gible" onclick="cambiarImagen(4)">
-    <div class="texto">
-        <h2 id="titulo4">gible</h2>
-        <p id="descripcion4">gible evoluciona a gabite al nivel 24.</p>
+    <div class="tarjeta">
+        <img id="imagen4" src="gible.png" alt="gible" onclick="cambiarImagen(4)">
+        <div class="texto">
+            <h2 id="titulo4">gible</h2>
+            <p id="descripcion4">gible evoluciona a gabite al nivel 24.</p>
+        </div>
     </div>
-</div>
 
-<div class="tarjeta">
-    <img id="imagen5" src="jangmo-o.png" alt="jangmo-o" onclick="cambiarImagen(5)">
-    <div class="texto">
-        <h2 id="titulo5">jangmo-o</h2>
-        <p id="descripcion5">jangmo-o evoluciona a hakamo-o al nivel 35.</p>
+    <div class="tarjeta">
+        <img id="imagen5" src="jangmo-o.png" alt="jangmo-o" onclick="cambiarImagen(5)">
+        <div class="texto">
+            <h2 id="titulo5">jangmo-o</h2>
+            <p id="descripcion5">jangmo-o evoluciona a hakamo-o al nivel 35.</p>
+        </div>
     </div>
 </div>
 
 <script>
     const imagenes = [
-        // Imágenes para la tarjeta de Grubbin
+        // Imágenes para la tarjeta de Dratini
         [
             {
                 src: "dratini.png",
@@ -96,7 +107,7 @@ body {
             {
                 src: "dragonite.png",
                 titulo: "dragonite",
-                descripcion: "dragonite es un Pokémon de tipo dragon/volador y es la forma final de dratini."
+                descripcion: "dragonite es un Pokémon de tipo dragón/volador y es la forma final de dratini."
             }
         ],
         // Imágenes para las otras tarjetas
@@ -109,11 +120,10 @@ body {
             {
                 src: "altaria.png",
                 titulo: "altaria",
-                descripcion: "altaria es un pokemon de tipo dragon/volador y la forma final de swablue"
+                descripcion: "altaria es un Pokémon de tipo dragón/volador y la forma final de swablue."
             },
-
         ],
-        //imagen tercera tarjeta
+        // Imagen tercera tarjeta
         [
             {
                 src: "dreepy.png",
@@ -121,17 +131,17 @@ body {
                 descripcion: "dreepy evoluciona a drakloak al nivel 50."
             },
             {
-                src: "Drakloak.png",
+                src: "drakloak.png",
                 titulo: "drakloak",
                 descripcion: "drakloak evoluciona a dragapult al nivel 60."
             },
             {
                 src: "dragapult.png",
                 titulo: "dragapult",
-                descripcion: "dragapult es un Pokémon de tipo dragon/fantasma y es la forma final de dreepy."
+                descripcion: "dragapult es un Pokémon de tipo dragón/fantasma y es la forma final de dreepy."
             }
         ],
-        //imagen cuarta tarjeta
+        // Imagen cuarta tarjeta
         [
             {
                 src: "gible.png",
@@ -146,10 +156,10 @@ body {
             {
                 src: "garchomp.png",
                 titulo: "garchomp",
-                descripcion: "garchomp es un Pokémon de tipo dragon/tierra y es la forma final de gible."
+                descripcion: "garchomp es un Pokémon de tipo dragón/tierra y es la forma final de gible."
             }
         ],
-        // quinta tarjeta
+        // Quinta tarjeta
         [
             {
                 src: "jangmo-o.png",
@@ -164,7 +174,7 @@ body {
             {
                 src: "kommo-o.png",
                 titulo: "kommo-o",
-                descripcion: "kommo-o es un Pokémon de tipo dragon/lucha y es la forma final de jangmo-o."
+                descripcion: "kommo-o es un Pokémon de tipo dragón/lucha y es la forma final de jangmo-o."
             }
         ]
     ];
