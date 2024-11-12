@@ -7,13 +7,13 @@
     <style>
         body {
             margin: 0;
-            height: 100vh;
-            background-image: url('volcanfondo.png'); /* Imagen de fondo */
+            min-height: 100vh; /* Cambiado de height a min-height */
+            background-image: url('raro.jpg'); /* Imagen de fondo */
             background-size: cover; /* Cubrir toda la pantalla */
+            background-position: center; /* Centrar la imagen */
             display: flex;
-            flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
-            justify-content: center; /* Centrar las tarjetas horizontalmente */
-            align-items: center; /* Centrar las tarjetas verticalmente */
+            flex-direction: column; /* Cambiar a columna */
+            align-items: center; /* Centrar horizontalmente */
             font-family: Arial, sans-serif;
         }
         .tarjeta {
