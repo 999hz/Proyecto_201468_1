@@ -15,7 +15,7 @@
             background-image: url('resources/Centro Pokemon.jpg');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            min-height: 100vh; /* Cambiado de height a min-height */
         }
         .caja-parrafo {
             background-color: rgba(76, 175, 80, 0.8); /* Fondo semitransparente para la caja de párrafo */
@@ -85,9 +85,9 @@
                         <img src="resources/fuego.jpg" alt="fuego" class="img-fluid" onclick="redirectToForm('fuego/fuego.html')">
                     </div>
                     <div class="col-6 col-md-4 mb-4">
-                        <img src="resources/tierra.jpg" alt="tierra" class="img-fluid" onclick="redirectToForm('tierra/tierra.html')">
+                        <img src="resources/tierra.jpg" alt="tierra" class="img-fluid" onclick="redirectToForm('tierra/tierra.html ')">
                     </div>
-                    <div class="col-6 col-md-4 mb-4">
+                    <div class=" col-6 col-md-4 mb-4">
                         <img src="resources/agua.jpg" alt="agua" class="img-fluid" onclick="redirectToForm('agua/agua.html')">
                     </div>
                     <div class="col-6 col-md-4 mb-4">
@@ -117,6 +117,32 @@
                             <input type="password" class="form-control" id="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="newUsername" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" id="newUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="newPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
                     </form>
                 </div>
             </div>
@@ -144,8 +170,17 @@
         // Mostrar mensaje de bienvenida y ocultar botón de inicio de sesión
         document.getElementById('loginItem').style.display = 'none';
         document.getElementById('welcomeText').innerText = 'Bienvenido ' + username;
-        document.getElementById('welcomeItem').style.display = 'block';
+        document .getElementById('welcomeItem').style.display = 'block';
         $('#loginModal').modal('hide'); // Cerrar el modal después de iniciar sesión
+    });
+
+    // Manejo del formulario de registro
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const newUsername = document.getElementById('newUsername').value;
+        alert('Registrando nuevo usuario: ' + newUsername);
+        // Aquí puedes agregar la lógica para registrar al nuevo usuario
+        $('#registerModal').modal('hide'); // Cerrar el modal después de registrarse
     });
     </script>
 
